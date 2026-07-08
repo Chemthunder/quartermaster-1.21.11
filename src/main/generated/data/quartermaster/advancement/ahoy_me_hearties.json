@@ -1,0 +1,30 @@
+{
+  "parent": "minecraft:adventure/root",
+  "criteria": {
+    "e": {
+      "conditions": {
+        "items": [
+          {
+            "items": "quartermaster:rapier"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": "Collect a fanciful weapon, only for a traveler of the Seven Seas.",
+    "frame": "goal",
+    "hidden": true,
+    "icon": {
+      "count": 1,
+      "id": "quartermaster:rapier"
+    },
+    "title": "Ahoy me Hearties!"
+  },
+  "requirements": [
+    [
+      "e"
+    ]
+  ]
+}

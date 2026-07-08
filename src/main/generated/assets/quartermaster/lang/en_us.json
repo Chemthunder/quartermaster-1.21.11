@@ -1,0 +1,9 @@
+{
+  "enchantment.quartermaster.disarm": "Disarm",
+  "enchantment.quartermaster.disarm.desc": "Upon completing a crit chain of four without taking damage, your opponent's currently held item will be put on cooldown.",
+  "enchantment.quartermaster.joust": "Joust",
+  "enchantment.quartermaster.joust.desc": "Swaps the parry for a tremendous boost of speed into the air.",
+  "item.quartermaster.rapier": "Rapier",
+  "item.quartermaster.rapier_handle": "Rapier Handle",
+  "item.quartermaster.ruined_handle": "Ruined Handle"
+}

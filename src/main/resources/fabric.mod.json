@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "quartermaster",
+  "version": "${version}",
+  "name": "Quartermaster",
+  "description": "This is an example description! Tell everyone what your mod is about!",
+  "authors": [
+    "Me!"
+  ],
+  "contact": {
+    "homepage": "https://fabricmc.net/",
+    "sources": "https://github.com/FabricMC/fabric-example-mod"
+  },
+  "license": "ARR",
+  "icon": "assets/quartermaster/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "net.not_assher.core.Quartermaster"
+    ],
+    "client": [
+      "net.not_assher.core.QuartermasterClient"
+    ],
+    "fabric-datagen": [
+      "net.not_assher.datagen.QuartermasterDataGenerator"
+    ],
+    "cardinal-components": [
+      "net.not_assher.core.cca.ModCCA"
+    ]
+  },
+  "mixins": [
+    "quartermaster.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.15.11",
+    "minecraft": "~1.21.11",
+    "java": ">=21",
+    "fabric-api": "*"
+  },
+  "custom": {
+    "cardinal-components": [
+      "quartermaster:rapier"
+    ]
+  }
+}
