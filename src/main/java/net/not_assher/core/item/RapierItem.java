@@ -10,7 +10,6 @@ import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EquipmentSlot;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.player.PlayerEntity;
@@ -132,7 +131,9 @@ public class RapierItem extends Item implements CritEffectItem {
     }
 
     public void inventoryTick(ItemStack stack, ServerWorld world, Entity entity, @Nullable EquipmentSlot slot) {
-        stack.setHolder(entity);
+        if (entity instanceof PlayerEntity player) {
+            stack.setHolder(player);
+        }
     }
 
     public ActionResult useOnBlock(ItemUsageContext context) {
@@ -185,18 +186,5 @@ public class RapierItem extends Item implements CritEffectItem {
                 }
             }
         }
-    }
-
-    public int getItemBarStep(ItemStack stack) {
-        Entity hold = stack.getHolder();
-        if (hold instanceof PlayerEntity player) {
-            return Math.round((float) RapierComponent.KEY.get(player).getCrits() / 4 * 13);
-        } else {
-            return 0;
-        }
-    }
-
-    public boolean isItemBarVisible(ItemStack stack) {
-        return super.isItemBarVisible(stack) || EnchantmentHelper.hasAnyEnchantmentsWith(stack, ModEnchantmentEffects.DISARM);
     }
 }
