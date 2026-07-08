@@ -17,10 +17,8 @@ public class RapierComponent implements AutoSyncedComponent, CommonTickingCompon
     private final PlayerEntity player;
 
     private static final int MAX_PARRY_TICKS = (3 * 20);
-    private static final int MAX_CRITS = 4;
 
     private int parryTicks = 0;
-    private int crits = 0;
 
     public RapierComponent(PlayerEntity player) {
         this.player = player;
@@ -41,12 +39,10 @@ public class RapierComponent implements AutoSyncedComponent, CommonTickingCompon
 
     public void readData(ReadView readView) {
         parryTicks = readView.getInt("ParryTicks", 0);
-        crits = readView.getInt("Crits", 0);
     }
 
     public void writeData(WriteView writeView) {
         writeView.putInt("ParryTicks", parryTicks);
-        writeView.putInt("Crits", crits);
     }
 
     public int getParryTicks() {
@@ -55,20 +51,6 @@ public class RapierComponent implements AutoSyncedComponent, CommonTickingCompon
 
     public void setParryTicks(int parryTicks) {
         this.parryTicks = parryTicks;
-        sync();
-    }
-
-    public int getCrits() {
-        return crits;
-    }
-
-    public void setCrits(int crits) {
-        this.crits = crits;
-        sync();
-    }
-
-    public void incCrits() {
-        this.crits++;
         sync();
     }
 }

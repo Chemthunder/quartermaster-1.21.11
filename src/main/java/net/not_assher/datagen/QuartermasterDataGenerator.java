@@ -23,6 +23,5 @@ public class QuartermasterDataGenerator implements DataGeneratorEntrypoint {
 	}
 
     public void buildRegistry(RegistryBuilder registryBuilder) {
-        registryBuilder.addRegistry(RegistryKeys.ENCHANTMENT, ModEnchantments::bootstrap);
-    }
+        registryBuilder.addRegistry(RegistryKeys.ENCHANTMENT, ModEnchantments::bootstrap);    }
 }

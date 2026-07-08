@@ -1,6 +1,5 @@
 package net.not_assher.core.item;
 
-import net.acoyt.acornlib.api.item.CritEffectItem;
 import net.fabricmc.fabric.api.item.v1.EnchantingContext;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -19,6 +18,7 @@ import net.minecraft.item.ItemUsageContext;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.MathHelper;
@@ -30,7 +30,7 @@ import net.not_assher.core.index.ModEnchantmentEffects;
 import net.not_assher.core.index.tag.ModEnchantmentTags;
 import org.jspecify.annotations.Nullable;
 
-public class RapierItem extends Item implements CritEffectItem {
+public class RapierItem extends Item {
     public RapierItem(Settings settings) {
         super(settings);
     }
@@ -119,9 +119,7 @@ public class RapierItem extends Item implements CritEffectItem {
 
             user.swingHand(hand);
         } else {
-            if (!EnchantmentHelper.hasAnyEnchantmentsWith(stack, ModEnchantmentEffects.DISARM)) {
-                RapierComponent.KEY.get(user).setParryTicks((3 * 20));
-            }
+            RapierComponent.KEY.get(user).setParryTicks((3 * 20));
         }
 
         if (!user.isCreative()) {
@@ -133,6 +131,12 @@ public class RapierItem extends Item implements CritEffectItem {
     public void inventoryTick(ItemStack stack, ServerWorld world, Entity entity, @Nullable EquipmentSlot slot) {
         if (entity instanceof PlayerEntity player) {
             stack.setHolder(player);
+
+            if (player.isSubmergedInWater() && player.isSneaking() && player.getMainHandStack() == stack && !player.isSwimming()) {
+                if (world.getRandom().nextBetween(2, 8) > 6) {
+                    stack.set(ModDataComponentTypes.IS_CORAL, true);
+                }
+            }
         }
     }
 
@@ -142,9 +146,13 @@ public class RapierItem extends Item implements CritEffectItem {
         BlockState state = context.getWorld().getBlockState(context.getBlockPos());
 
         if (player != null) {
-            if (state.isOf(Blocks.SMITHING_TABLE)) {
+            if (state.isOf(Blocks.WATER_CAULDRON)) {
                 if (player.isSneaking()) {
-                    stack.set(ModDataComponentTypes.IS_CORAL, !stack.getOrDefault(ModDataComponentTypes.IS_CORAL, false));
+                    stack.set(ModDataComponentTypes.IS_CORAL, false);
+                    player.swingHand(player.getActiveHand());
+
+                    player.playSound(SoundEvents.ENTITY_BOAT_PADDLE_WATER, 1, 1);
+
                     return ActionResult.FAIL;
                 }
             }
@@ -154,37 +162,5 @@ public class RapierItem extends Item implements CritEffectItem {
 
     public boolean canBeEnchantedWith(ItemStack stack, RegistryEntry<Enchantment> enchantment, EnchantingContext context) {
         return enchantment.isIn(ModEnchantmentTags.RAPIER_ENCHANTABLE);
-    }
-
-    public void critEffect(PlayerEntity player, ItemStack stack, Entity target) {
-        if (EnchantmentHelper.hasAnyEnchantmentsWith(stack, ModEnchantmentEffects.DISARM)) {
-            RapierComponent rapier = RapierComponent.KEY.get(player);
-
-            if (rapier.getCrits() < 4) {
-                rapier.incCrits();
-
-                if (player.getEntityWorld() instanceof ServerWorld serverWorld) {
-                    serverWorld.spawnParticles(
-                            ParticleTypes.END_ROD,
-                            target.getX(),
-                            target.getY(),
-                            target.getZ(),
-                            9,
-                            target.getWidth(),
-                            target.getHeight(),
-                            target.getWidth(),
-                            0.2F
-                    );
-                }
-            } else {
-                rapier.setCrits(0);
-
-                if (target instanceof PlayerEntity living) {
-                    living.getItemCooldownManager().set(living.getActiveOrMainHandStack(), 140);
-                } else {
-                    player.addExperience(30);
-                }
-            }
-        }
     }
 }

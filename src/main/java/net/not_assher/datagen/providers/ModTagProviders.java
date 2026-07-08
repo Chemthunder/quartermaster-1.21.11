@@ -34,13 +34,17 @@ public class ModTagProviders {
 
         protected void configure(RegistryWrapper.WrapperLookup registries) {
             this.getTagBuilder(EnchantmentTags.NON_TREASURE)
-                    .add(ModEnchantments.DISARM.getValue())
                     .add(ModEnchantments.JOUST.getValue())
                     .build();
 
             this.getTagBuilder(ModEnchantmentTags.RAPIER_ENCHANTABLE)
                     .add(Enchantments.KNOCKBACK.getValue())
-                    .add(ModEnchantments.DISARM.getValue())
+                    .add(Enchantments.FIRE_ASPECT.getValue())
+                    .add(Enchantments.SHARPNESS.getValue())
+                    .add(Enchantments.BANE_OF_ARTHROPODS.getValue())
+                    .add(Enchantments.LOOTING.getValue())
+                    .add(Enchantments.SMITE.getValue())
+                    .add(Enchantments.FEATHER_FALLING.getValue())
                     .add(ModEnchantments.JOUST.getValue())
                     .build();
         }

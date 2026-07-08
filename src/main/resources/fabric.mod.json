@@ -3,15 +3,12 @@
   "id": "quartermaster",
   "version": "${version}",
   "name": "Quartermaster",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "description": "piracy",
   "authors": [
-    "Me!"
+    "Not_assher",
+    "Chemthunder"
   ],
-  "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
-  },
-  "license": "ARR",
+  "license": "ARR (Do Not Distribute!)",
   "icon": "assets/quartermaster/icon.png",
   "environment": "*",
   "entrypoints": {

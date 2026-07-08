@@ -7,16 +7,13 @@ import net.minecraft.advancement.AdvancementEntry;
 import net.minecraft.advancement.AdvancementFrame;
 import net.minecraft.advancement.AdvancementRequirements;
 import net.minecraft.advancement.criterion.InventoryChangedCriterion;
-import net.minecraft.advancement.criterion.TickCriterion;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.not_assher.core.Quartermaster;
-import net.not_assher.core.index.ModCriterions;
 import net.not_assher.core.index.ModItems;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Consumer;
 

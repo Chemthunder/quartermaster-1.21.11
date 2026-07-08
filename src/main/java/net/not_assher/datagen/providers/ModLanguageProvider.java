@@ -4,7 +4,6 @@ import net.acoyt.acornlib.api.util.DataUtils;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 import net.minecraft.registry.RegistryWrapper;
-import net.not_assher.core.index.ModEnchantmentEffects;
 import net.not_assher.core.index.ModItems;
 import net.not_assher.core.index.data.ModEnchantments;
 
@@ -18,7 +17,10 @@ public class ModLanguageProvider extends FabricLanguageProvider {
     public void generateTranslations(RegistryWrapper.WrapperLookup wrapperLookup, TranslationBuilder translationBuilder) {
         ModItems.rant.registerLang(wrapperLookup, translationBuilder);
 
-        DataUtils.registerEnchantment(translationBuilder, ModEnchantments.JOUST, "Joust", "Swaps the parry for a tremendous boost of speed into the air.");
-        DataUtils.registerEnchantment(translationBuilder, ModEnchantments.DISARM, "Disarm", "Upon completing a crit chain of four without taking damage, your opponent's currently held item will be put on cooldown.");
+        DataUtils.registerEnchantment(translationBuilder,
+                ModEnchantments.JOUST,
+                "Joust",
+                "Swaps the parry for a tremendous boost of speed into the air."
+        );
     }
 }

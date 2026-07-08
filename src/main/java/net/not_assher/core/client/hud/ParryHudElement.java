@@ -4,7 +4,6 @@ import net.fabricmc.fabric.api.client.rendering.v1.hud.HudElement;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gl.RenderPipelines;
 import net.minecraft.client.gui.DrawContext;
-import net.minecraft.client.gui.hud.InGameHud;
 import net.minecraft.client.render.RenderTickCounter;
 import net.minecraft.entity.player.PlayerEntity;
 import net.not_assher.core.Quartermaster;

@@ -14,6 +14,7 @@ public interface ModItems {
             .attributeModifiers(RapierItem.createAttributes())
             .component(ModDataComponentTypes.IS_CORAL, false)
             .enchantable(4)
+            .maxDamage(4026)
             .fireproof()
     );
 
