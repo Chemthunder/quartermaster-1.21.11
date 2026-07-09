@@ -10,4 +10,6 @@ public interface ModItemTags {
     TagBuilder<Item> tag = new TagBuilder<>(Quartermaster.MOD_ID, RegistryKeys.ITEM);
 
     TagKey<Item> RAPIERS = tag.register("rapiers");
+    TagKey<Item> CUTLASSES = tag.register("cutlasses");
+    TagKey<Item> MORNINGSTARS = tag.register("morningstars");
 }

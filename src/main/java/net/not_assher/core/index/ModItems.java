@@ -3,6 +3,8 @@ package net.not_assher.core.index;
 import net.acoyt.acornlib.api.registrants.ItemRegistrant;
 import net.minecraft.item.Item;
 import net.not_assher.core.Quartermaster;
+import net.not_assher.core.item.CutlassItem;
+import net.not_assher.core.item.MorningstarItem;
 import net.not_assher.core.item.RapierHandleItem;
 import net.not_assher.core.item.RapierItem;
 
@@ -24,6 +26,21 @@ public interface ModItems {
 
     Item RUINED_HANDLE = rant.register("ruined_handle", RapierHandleItem::new, new Item.Settings()
             .maxCount(1)
+    );
+
+    Item CUTLASS = rant.register("cutlass", CutlassItem::new, new Item.Settings()
+            .maxCount(1)
+            .attributeModifiers(CutlassItem.createAttributes())
+            .enchantable(4)
+            .maxDamage(4026)
+            .fireproof()
+    );
+
+    Item MORNINGSTAR = rant.register("morningstar", MorningstarItem::new, new Item.Settings()
+            .maxCount(1)
+            .attributeModifiers(MorningstarItem.createAttributes())
+            .maxDamage(4026)
+            .fireproof()
     );
 
     static void init() {}

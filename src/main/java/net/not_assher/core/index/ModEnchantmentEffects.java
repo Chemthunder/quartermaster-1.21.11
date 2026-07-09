@@ -9,6 +9,7 @@ public interface ModEnchantmentEffects {
     EnchantmentEffectRegistrant rant = new EnchantmentEffectRegistrant(Quartermaster.MOD_ID);
 
     ComponentType<Unit> JOUST = rant.register("joust", Unit.CODEC, Unit.PACKET_CODEC);
+    ComponentType<Unit> PEGLEG = rant.register("pegleg", Unit.CODEC, Unit.PACKET_CODEC);
 
     static void init() {}
 }

@@ -1,7 +1,11 @@
 // 1.21.11	-999999999-01-01T00:00:00	Quartermaster/Model Definitions
+1ae0c97b5b7354924df5d83e1bc6451e7d790998 assets/quartermaster/items/cutlass.json
+b0d7a9afbc609cb4a394e4da4d28c0b43c1e0633 assets/quartermaster/items/morningstar.json
 2a1305d7152bd43ce232886e2eecb15e102e1646 assets/quartermaster/items/rapier.json
 41156105f57b2bc3c0ce860a7893c681b54e48b7 assets/quartermaster/items/rapier_handle.json
 91520d9d55c6f6a66dfad6d70d24e8f20824908e assets/quartermaster/items/ruined_handle.json
+1eaac7dbba1a5c212005731e4d0233929c5281ff assets/quartermaster/models/item/cutlass.json
+89c734736e7eef13f2a1cdcc1a46c75dc81e13f1 assets/quartermaster/models/item/morningstar.json
 20a4a008b7c7b34f3701b9d08b580d2a50b8f4a3 assets/quartermaster/models/item/rapier.json
 1f3d0768c8dae3db0c294e2c48b39f6971bda291 assets/quartermaster/models/item/rapier_coral.json
 8ae9cbcdb2aa6895e6ddada6c5b628e56917eca3 assets/quartermaster/models/item/rapier_handle.json

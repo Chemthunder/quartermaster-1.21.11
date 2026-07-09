@@ -18,11 +18,11 @@ public abstract class LivingEntityMixin {
     @WrapMethod(method = "damage")
     private boolean parry(ServerWorld world, DamageSource source, float amount, Operation<Boolean> original) {
         if (source.getAttacker() instanceof LivingEntity target) {
-            if ((Object) this instanceof PlayerEntity player) {
-                RapierComponent rapier = RapierComponent.KEY.get(player);
+            RapierComponent rapier = RapierComponent.KEY.get(this);
 
+            if (RapierComponent.KEY.get(target).getParryTicks() <= 0) {
                 if (rapier.getParryTicks() > 0) {
-                    target.damage(world, source, amount * 2);
+                    target.damage(world, source, amount);
 
                     return original.call(world, source, amount / 2);
                 }

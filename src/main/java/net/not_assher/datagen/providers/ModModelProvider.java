@@ -1,5 +1,6 @@
 package net.not_assher.datagen.providers;
 
+import net.acoyt.acornlib.api.util.DataUtils;
 import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.minecraft.client.data.*;
@@ -23,6 +24,9 @@ public class ModModelProvider extends FabricModelProvider {
 
         itemModelGenerator.register(ModItems.RAPIER_HANDLE, Models.GENERATED);
         itemModelGenerator.register(ModItems.RUINED_HANDLE, Models.GENERATED);
+
+        DataUtils.createSimpleGuiVarying(itemModelGenerator, ModItems.CUTLASS);
+        DataUtils.createSimpleGuiVarying(itemModelGenerator, ModItems.MORNINGSTAR);
     }
 
     private static void createRapier(ItemModelGenerator generator) {

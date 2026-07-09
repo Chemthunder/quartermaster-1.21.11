@@ -1,5 +1,6 @@
 package net.not_assher.core.cca.entity;
 
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.storage.ReadView;
 import net.minecraft.storage.WriteView;
@@ -14,13 +15,13 @@ public class RapierComponent implements AutoSyncedComponent, CommonTickingCompon
             Quartermaster.id("rapier"),
             RapierComponent.class
     );
-    private final PlayerEntity player;
+    private final LivingEntity player;
 
     private static final int MAX_PARRY_TICKS = (3 * 20);
 
     private int parryTicks = 0;
 
-    public RapierComponent(PlayerEntity player) {
+    public RapierComponent(LivingEntity player) {
         this.player = player;
     }
 

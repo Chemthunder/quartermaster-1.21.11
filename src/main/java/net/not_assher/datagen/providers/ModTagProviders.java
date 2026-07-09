@@ -24,6 +24,14 @@ public class ModTagProviders {
             this.valueLookupBuilder(ModItemTags.RAPIERS)
                     .add(ModItems.RAPIER)
                     .setReplace(false);
+
+            this.valueLookupBuilder(ModItemTags.CUTLASSES)
+                    .add(ModItems.CUTLASS)
+                    .setReplace(false);
+
+            this.valueLookupBuilder(ModItemTags.MORNINGSTARS)
+                    .add(ModItems.MORNINGSTAR)
+                    .setReplace(false);
         }
     }
 
@@ -44,7 +52,6 @@ public class ModTagProviders {
                     .add(Enchantments.BANE_OF_ARTHROPODS.getValue())
                     .add(Enchantments.LOOTING.getValue())
                     .add(Enchantments.SMITE.getValue())
-                    .add(Enchantments.FEATHER_FALLING.getValue())
                     .add(ModEnchantments.JOUST.getValue())
                     .build();
         }

@@ -13,6 +13,7 @@ import net.not_assher.core.index.tag.ModItemTags;
 
 public interface ModEnchantments {
     RegistryKey<Enchantment> JOUST = create("joust");
+    RegistryKey<Enchantment> PEGLEG = create("pegleg");
 
     private static RegistryKey<Enchantment> create(String id) {
         return RegistryKey.of(RegistryKeys.ENCHANTMENT, Quartermaster.id(id));

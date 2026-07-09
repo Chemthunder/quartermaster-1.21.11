@@ -1,6 +1,8 @@
 {
   "enchantment.quartermaster.joust": "Joust",
   "enchantment.quartermaster.joust.desc": "Swaps the parry for a tremendous boost of speed into the air.",
+  "item.quartermaster.cutlass": "Cutlass",
+  "item.quartermaster.morningstar": "Morningstar",
   "item.quartermaster.rapier": "Rapier",
   "item.quartermaster.rapier_handle": "Rapier Handle",
   "item.quartermaster.ruined_handle": "Ruined Handle"
